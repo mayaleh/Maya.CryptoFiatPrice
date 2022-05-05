@@ -42,7 +42,7 @@ class SelectCoinViewModel
             return 0;
         }
 
-        if(pos <= 0)
+        if(pos < 0)
         {
             return _currencies.size() - 1;
         }
