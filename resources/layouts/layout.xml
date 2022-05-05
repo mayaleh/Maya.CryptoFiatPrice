@@ -1,0 +1,4 @@
+<layout id="MainLayout">
+    <label id="SelectedLabel" x="center" y="25%" font="Graphics.FONT_SYSTEM_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="OptionLabel" x="center" y="center" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_YELLOW" />
+</layout>
