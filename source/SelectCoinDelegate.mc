@@ -5,14 +5,12 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
     private var _vm;
     private var _httpClient;
 
-    private var _currencies = ["USD", "EUR", "GBP", "CZK"];
+    private var _currencies = ["USD", "EUR", "GBP", "CZK", "CNY", "CAD", "AUD"];
 
     function initialize(vm as SelectCoinViewModel) {
         BehaviorDelegate.initialize();
         _vm = vm;
         _httpClient = new HttpClient();
-        
-        //_vm.currentOption = _coins[_current];
     }
 
     function onNextPage()
@@ -35,7 +33,7 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
         _vm.onSelect();
 
         var query = {
-                "base" => _vm.selectedCoin
+                "base" => _vm.selectedCoin[0]
             };
         
         var responseCallback = method(:onResponse);
@@ -53,10 +51,10 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
 
             for( var i = 0; i < _currencies.size(); i += 1 )
             {
-                rates[i] = getPriceForCurrency(data, _currencies[i], _vm.selectedCoin);
+                rates[i] = getPriceForCurrency(data, _currencies[i], _vm.selectedCoin[0]);
             }
-            
-            Toybox.WatchUi.switchToView(new PriceView(rates), null, Toybox.WatchUi.SLIDE_IMMEDIATE);
+            var priceViewMode = new PriceViewModel(rates);
+            Toybox.WatchUi.switchToView(new PriceView(priceViewMode), new PriceDelegate(priceViewMode), Toybox.WatchUi.SLIDE_IMMEDIATE);
         }
         else {
             System.println("Response error");

@@ -30,7 +30,7 @@ class SelectCoinView extends WatchUi.View {
 
         if(_vm.currentOption == null)
         {
-            setCurrentOptionText("loading currencies...");
+            setCurrentOptionText(["loading currencies...", Toybox.Graphics.COLOR_GREEN]);
             View.onUpdate(dc);
             return;
         }else
@@ -56,6 +56,7 @@ class SelectCoinView extends WatchUi.View {
     function setCurrentOptionText(text)
     {
         var infoLabel = View.findDrawableById("OptionLabel") as Text;
-        infoLabel.setText(text);
+        infoLabel.setText(text[0]);
+        infoLabel.setColor(text[1]);
     }
 }

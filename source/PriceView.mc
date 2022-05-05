@@ -22,14 +22,11 @@ class RateCurrency
 }
 
 class PriceView extends WatchUi.View {
-    private var _currentRate as RateCurrency;
-    private var _rates as Array<RateCurrency>;
-
-    function initialize(rates as Array<RateCurrency>)
+    private var _vm;
+    function initialize(vm)
     {
         View.initialize();
-        _rates = rates;
-        _currentRate = rates[0];
+        _vm = vm;
     }
 
     // Load your resources here
@@ -45,7 +42,7 @@ class PriceView extends WatchUi.View {
 
     // Update the view
     function onUpdate(dc) {
-        var message = _currentRate.getMessage();
+        var message = _vm.currentRate.getMessage();
         var infoLabel = View.findDrawableById("PriceLabel") as Text;
         infoLabel.setText(message);
         

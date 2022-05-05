@@ -7,7 +7,14 @@ class SelectCoinViewModel
     public var currentOption;
     public var isCoinSelected = false;
 
-    private var _currencies = ["BTC", "ETH"];
+    private var _currencies = [
+        ["BTC", Toybox.Graphics.COLOR_YELLOW],
+        ["ETH", Toybox.Graphics.COLOR_DK_BLUE],
+        ["LTC", Toybox.Graphics.COLOR_LT_GRAY],
+        ["XRP", Toybox.Graphics.COLOR_DK_GRAY],
+        ["BCH", Toybox.Graphics.COLOR_GREEN]
+    ];
+
     private var _current = 0;
 
     function initialize()
