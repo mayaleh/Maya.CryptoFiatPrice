@@ -65,4 +65,20 @@
         <param name="endDegree">218</param>
         <param name="color">0xFFFFFF</param>
     </drawable>
+
+    <label id="SourceInfoLabel" text="source: blockchain.com" x="center" y="65%" font="Graphics.FONT_SYSTEM_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <text-area id="AuthorLabel" 
+        text="created by Salim Mayaleh"
+        width="80%"
+        height="30%"
+        x="center"
+        y="75%"
+        justification="Graphics.TEXT_JUSTIFY_CENTER"
+        color="Graphics.COLOR_BLUE">
+        <fonts>
+            <font>Graphics.FONT_XTINY</font>
+            <font>Graphics.FONT_SYSTEM_XTINY</font>
+        </fonts>
+    </text-area>
+    
 </layout>
