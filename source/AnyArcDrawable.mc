@@ -26,9 +26,7 @@ class AnyArcDrawable extends Toybox.WatchUi.Drawable {
         _endDegree = params.get(:endDegree);
         _color = params.get(:color);
     }
-
-    // todo draw part of cyrcle
-
+    
     function draw(dc as Dc) as Void {
         _centerX = dc.getWidth() / 2;
         _centerY = dc.getHeight() / 2;

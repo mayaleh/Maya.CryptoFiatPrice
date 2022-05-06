@@ -26,6 +26,13 @@ class ProgramApp extends Application.AppBase {
             new SelectCoinDelegate(_viewModel)
          ] as Array<Views or InputDelegates>;
     }
+
+    function getGlanceView() as Array<GlanceView or GlanceViewDelegate>
+    {
+        return [ 
+            new AppGlanceView()
+         ] as Array<GlanceView or GlanceViewDelegate>;
+    }
 }
 
 function getApp() as SelectCoinApp {

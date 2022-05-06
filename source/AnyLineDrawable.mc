@@ -20,9 +20,7 @@ class AnyLineDrawable extends Toybox.WatchUi.Drawable {
         _endY = params.get(:endY);
         _color = params.get(:color);
     }
-
-    // todo draw part of cyrcle
-
+    
     function draw(dc as Dc) as Void {
 
         dc.setColor(_color, _color);

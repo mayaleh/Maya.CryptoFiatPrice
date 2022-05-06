@@ -1,4 +1,9 @@
 <layout id="MainLayout">
+    <drawable id="SmallLogo" class="SmallLogoDrawable">
+        <param name="x">-1</param>
+        <param name="y">10</param>
+    </drawable>
+
     <drawable id="SelectButtonHint" class="BtnHintDrawable">
         <param name="barThickness">4</param>
         <param name="barGap">3</param>

@@ -1,6 +1,9 @@
-<layout id="PriceLayout">
-    
-    
+<layout id="PriceLayout">    
+    <drawable id="SmallLogo" class="SmallLogoDrawable">
+        <param name="x">-1</param>
+        <param name="y">10</param>
+    </drawable>
+
     <label id="CoinLabel" x="center" y="25%" justification="Graphics.TEXT_JUSTIFY_CENTER" />
 
     <drawable id="TopSelectCoin" class="AnyLineDrawable">
