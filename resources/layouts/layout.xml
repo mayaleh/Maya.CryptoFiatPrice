@@ -1,4 +1,68 @@
 <layout id="MainLayout">
+    <drawable id="SelectButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">4</param>
+        <param name="barGap">3</param>
+        <param name="direct">0</param>
+        <param name="startDegree">20</param>
+        <param name="endDegree">40</param>
+        <param name="color">0x00FF00</param>
+    </drawable>
+    
     <label id="SelectedLabel" x="center" y="25%" font="Graphics.FONT_SYSTEM_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    
+    <!-- <drawable id="TopSelectCoin" class="AnyArcDrawable">
+        <param name="radius">40</param>
+        <param name="barThickness">3</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">30</param>
+        <param name="endDegree">150</param>
+        <param name="color">0x00AAFF</param>
+    </drawable> -->
+
+    <drawable id="TopSelectCoin" class="AnyLineDrawable">
+        <param name="startX">48</param>
+        <param name="endX">216</param>
+        <param name="startY">100</param>
+        <param name="endY">100</param>
+        <param name="color">0xAAAAAA</param>
+    </drawable>
+
     <label id="OptionLabel" x="center" y="center" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_YELLOW" />
+
+    <drawable id="BottomSelectCoin" class="AnyLineDrawable">
+        <param name="startX">48</param>
+        <param name="endX">216</param>
+        <param name="startY">161</param>
+        <param name="endY">161</param>
+        <param name="color">0xAAAAAA</param>
+    </drawable>
+
+    <!-- <drawable id="BottomSelectCoin" class="AnyArcDrawable">
+        <param name="radius">40</param>
+        <param name="barThickness">3</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">210</param>
+        <param name="endDegree">330</param>
+        <param name="color">0x00AAFF</param>
+    </drawable> -->
+
+    <drawable id="PrevButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">5</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">172</param>
+        <param name="endDegree">188</param>
+        <param name="color">0xFFFFFF</param>
+    </drawable>
+
+    <drawable id="NextButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">5</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">202</param>
+        <param name="endDegree">218</param>
+        <param name="color">0xFFFFFF</param>
+    </drawable>
 </layout>

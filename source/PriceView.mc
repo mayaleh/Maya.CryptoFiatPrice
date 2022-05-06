@@ -24,10 +24,15 @@ class PriceView extends WatchUi.View {
 
     // Update the view
     function onUpdate(dc) {
-        var message = _vm.currentRate.getMessage();
-        var infoLabel = View.findDrawableById("PriceLabel") as Text;
-        infoLabel.setText(message);
         
+        var priceText = _vm.currentRate.getPriceText();
+        var infoLabel = View.findDrawableById("PriceLabel") as Text;
+        infoLabel.setText(priceText);
+        
+        var coinText = _vm.currentRate.getCoinText();
+        var coinLabel = View.findDrawableById("CoinLabel") as Text;
+        coinLabel.setText(coinText);
+
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
     }

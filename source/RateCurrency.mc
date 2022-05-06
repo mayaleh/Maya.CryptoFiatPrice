@@ -13,8 +13,13 @@ class RateCurrency
         _buy = buy;
     }
 
-    public function getMessage()
+    public function getPriceText()
     {
-        return _cryto + ": " + _buy.format("%0.2f") + " " + _currency;
+        return _buy.format("%0.2f") + " " + _currency;
+    }
+
+    public function getCoinText()
+    {
+        return _cryto + ":";
     }
 }

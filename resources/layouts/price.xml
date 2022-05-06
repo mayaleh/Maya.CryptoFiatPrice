@@ -1,3 +1,51 @@
 <layout id="PriceLayout">
+    
+    
+    <label id="CoinLabel" x="center" y="25%" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+
+    <drawable id="TopSelectCoin" class="AnyLineDrawable">
+        <param name="startX">48</param>
+        <param name="endX">216</param>
+        <param name="startY">100</param>
+        <param name="endY">100</param>
+        <param name="color">0xAAAAAA</param>
+    </drawable>
+
     <label id="PriceLabel" x="center" y="center" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_YELLOW" />
+
+    <drawable id="BottomSelectCoin" class="AnyLineDrawable">
+        <param name="startX">48</param>
+        <param name="endX">216</param>
+        <param name="startY">161</param>
+        <param name="endY">161</param>
+        <param name="color">0xAAAAAA</param>
+    </drawable>
+
+    <drawable id="PrevButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">5</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">172</param>
+        <param name="endDegree">188</param>
+        <param name="color">0xFFFFFF</param>
+    </drawable>
+
+    <drawable id="NextButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">5</param>
+        <param name="barGap">0</param>
+        <param name="direct">0</param>
+        <param name="startDegree">202</param>
+        <param name="endDegree">218</param>
+        <param name="color">0xFFFFFF</param>
+    </drawable>
+
+    
+    <drawable id="BackButtonHint" class="BtnHintDrawable">
+        <param name="barThickness">4</param>
+        <param name="barGap">3</param>
+        <param name="direct">0</param>
+        <param name="startDegree">320</param>
+        <param name="endDegree">340</param>
+        <param name="color">0xAA0000</param>
+    </drawable>
 </layout>

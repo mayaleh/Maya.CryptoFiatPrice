@@ -23,4 +23,11 @@ class PriceDelegate extends Toybox.WatchUi.BehaviorDelegate{
         Toybox.WatchUi.requestUpdate();
         return true;
     }
+
+    function onBack()
+    {
+        var selectCoinViewMode = new SelectCoinViewModel();
+        Toybox.WatchUi.switchToView(new SelectCoinView(selectCoinViewMode), new SelectCoinDelegate(selectCoinViewMode), Toybox.WatchUi.SLIDE_IMMEDIATE);
+        return true;
+    }
 }
