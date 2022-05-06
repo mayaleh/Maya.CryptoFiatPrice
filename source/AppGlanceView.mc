@@ -4,6 +4,7 @@ using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Lang;
 
+(:glance)
 public class AppGlanceView extends Toybox.WatchUi.GlanceView
 {
     function initialize()
@@ -13,8 +14,14 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
 
 
     // Load your resources here
-    function onLayout(dc) {
-        setLayout(Rez.Layouts.AppGlanceView(dc));
+    function onLayout(dc as Dc) {
+        try {
+            setLayout(Rez.Layouts.AppGlanceLayout(dc)); // the layout must contain the scope attribute... found out after 6 hours of search because of bad docs and missing examples...
+        }
+        catch( ex ) {
+            var e = ex;
+            // Code to catch all execeptions
+        }
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -26,7 +33,7 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
     // Update the view
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
-        View.onUpdate(dc);
+        GlanceView.onUpdate(dc);
     }
 
     // Called when this View is removed from the screen. Save the

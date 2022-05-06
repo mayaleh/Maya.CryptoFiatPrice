@@ -1,3 +1,0 @@
-<layout id="AppGlanceView">
-    <label id="InfoText" text="Explore the price rate" x="52" y="center" />
-</layout>

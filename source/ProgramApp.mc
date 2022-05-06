@@ -2,6 +2,7 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
+(:glance)
 class ProgramApp extends Application.AppBase {
     private var _viewModel;
 
