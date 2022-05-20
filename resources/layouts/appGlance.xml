@@ -1,14 +1,9 @@
 <layout id="AppGlanceLayout" scope="glance">
-     <text-area id="AuthorLabel" 
-        text="Exchange rate: BTC, ETH to USD, EUR,..."
-        width="100%"
-        height="100%"
-        x="0"
-        y="center"
-       >
+    <text-area id="AuthorLabel" text="Crypto exchange rates" width="100%" height="50%"  x="0" y="10%">
         <fonts>
             <font>Graphics.FONT_XTINY</font>
             <font>Graphics.FONT_SYSTEM_XTINY</font>
         </fonts>
     </text-area>
+    <label id="BtcRateLabel" x="0" y="70%" font="Graphics.FONT_SYSTEM_XTINY" />
 </layout>

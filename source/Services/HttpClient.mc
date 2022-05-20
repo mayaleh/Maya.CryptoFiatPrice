@@ -1,8 +1,8 @@
 using Toybox.System;
 using Toybox.Communications;
 
+(:glance,:background)
 class HttpClient {
-    
     function initialize() {
     }
 

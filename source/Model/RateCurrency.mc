@@ -15,7 +15,7 @@ class RateCurrency
 
     public function getPriceText()
     {
-        return _buy.format("%0.2f") + " " + _currency;
+        return _buy.format(AppConstants.NrFormat) + " " + _currency;
     }
 
     public function getCoinText()

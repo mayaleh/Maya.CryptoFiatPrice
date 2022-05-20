@@ -1,11 +1,23 @@
 import Toybox.WatchUi;
 using Toybox.System;
 
+class SelectProgressDelegate extends Toybox.WatchUi.BehaviorDelegate {
+    function initialize() {
+        BehaviorDelegate.initialize();
+    }
+
+    function onBack() {
+        return true;
+    }
+}
+
 class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
+    private var _progressBar;
+
     private var _vm;
     private var _httpClient;
 
-    private var _currencies = ["USD", "EUR", "GBP", "CZK", "CNY", "CAD", "AUD"];
+    private var _currencies = [AppConstants.Usd, "EUR", "GBP", "CZK", "CNY", "CAD", "AUD"];
 
     function initialize(vm as SelectCoinViewModel) {
         BehaviorDelegate.initialize();
@@ -30,6 +42,18 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
 
     // This is typically triggered by the Start/Enter button (KEY_ENTER) or by a CLICK_TYPE_TAP ClickEvent on a touch screen.
     function onSelect() {
+
+        _progressBar = new Toybox.WatchUi.ProgressBar(
+            "Processing...",
+            null
+        );
+
+        Toybox.WatchUi.pushView(
+            _progressBar,
+            new SelectProgressDelegate(),
+            WatchUi.SLIDE_DOWN
+        );
+
         _vm.onSelect();
 
         var query = {
@@ -54,7 +78,7 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
                 rates[i] = getPriceForCurrency(data, _currencies[i], _vm.selectedCoin[0]);
             }
             var priceViewMode = new PriceViewModel(rates);
-            Toybox.WatchUi.switchToView(new PriceView(priceViewMode), new PriceDelegate(priceViewMode), Toybox.WatchUi.SLIDE_IMMEDIATE);
+            Toybox.WatchUi.switchToView(new PriceView(priceViewMode), new PriceDelegate(priceViewMode), Toybox.WatchUi.SLIDE_RIGHT);
         }
         else {
             System.println("Response error");

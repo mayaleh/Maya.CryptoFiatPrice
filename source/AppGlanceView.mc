@@ -3,6 +3,9 @@ using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Lang;
+using Toybox.Time;
+using Toybox.Background;
+using Toybox.Application;
 
 (:glance)
 public class AppGlanceView extends Toybox.WatchUi.GlanceView
@@ -32,13 +35,36 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
 
     // Update the view
     function onUpdate(dc) {
-        // Call the parent onUpdate function to redraw the layout
-        GlanceView.onUpdate(dc);
+        try{
+            var rateUsd = Application.getApp().getProperty(AppConstants.AppRateUsdVar);
+            LoggerHelper.debug("action=AppGlanceView.onUpdate, message=" + rateUsd);
+            if(rateUsd){
+                setRateText(rateUsd);
+            }
+
+            GlanceView.onUpdate(dc);
+        }catch( ex ) {
+            var e = ex.mMessage;
+            LoggerHelper.debug("action=AppGlanceView.onUpdate, error=" + e);
+            // Code to catch all execeptions
+        }
     }
 
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() {
+    }
+    
+    function setRateText(text)
+    {
+        try {
+            var infoLabel = GlanceView.findDrawableById("BtcRateLabel") as Text;
+            infoLabel.setText(text);
+        }
+        catch( ex ) {
+            var e = ex;
+            // Code to catch all execeptions
+        }
     }
 }

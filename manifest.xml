@@ -24,6 +24,7 @@
             palette to update permissions.
         -->
         <iq:permissions>
+            <iq:uses-permission id="Background"/>
             <iq:uses-permission id="Communications"/>
         </iq:permissions>
         <!--
