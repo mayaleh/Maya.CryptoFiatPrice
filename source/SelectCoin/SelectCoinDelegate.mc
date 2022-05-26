@@ -69,6 +69,7 @@ class SelectCoinDelegate extends Toybox.WatchUi.BehaviorDelegate {
 
     function onResponse(responseCode, data)
     {   
+        Toybox.WatchUi.popView(Toybox.WatchUi.SLIDE_IMMEDIATE);
         if (responseCode == 200) {
             
             var rates = new[_currencies.size()];
