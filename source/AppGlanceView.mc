@@ -31,13 +31,24 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
+        try{
+            var rateUsd = Application.getApp().getProperty(AppConstants.AppRateUsdVar);
+            LoggerHelper.debug("action=AppGlanceView.onShow, message=" + rateUsd+ " for " + AppConstants.AppRateUsdVar);
+            if(rateUsd){
+                setRateText(rateUsd);
+            }
+        }catch( ex ) {
+            var e = ex.mMessage;
+            LoggerHelper.debug("action=AppGlanceView.onShow, error=" + e);
+            // Code to catch all execeptions
+        }
     }
 
     // Update the view
     function onUpdate(dc) {
         try{
             var rateUsd = Application.getApp().getProperty(AppConstants.AppRateUsdVar);
-            LoggerHelper.debug("action=AppGlanceView.onUpdate, message=" + rateUsd);
+            LoggerHelper.debug("action=AppGlanceView.onUpdate, message=" + rateUsd + " for " + AppConstants.AppRateUsdVar);
             if(rateUsd){
                 setRateText(rateUsd);
             }
@@ -46,7 +57,6 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
         }catch( ex ) {
             var e = ex.mMessage;
             LoggerHelper.debug("action=AppGlanceView.onUpdate, error=" + e);
-            // Code to catch all execeptions
         }
     }
 

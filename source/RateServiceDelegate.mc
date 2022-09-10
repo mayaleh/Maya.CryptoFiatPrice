@@ -26,8 +26,8 @@ class RateServiceDelegate extends System.ServiceDelegate {
         var dateString = Lang.format(
             "$1$:$2$",
             [
-                nowDt.hour,
-                nowDt.min,
+                nowDt.hour < 10 ? "0" + nowDt.hour : nowDt.hour,
+                nowDt.min < 10 ? "0" + nowDt.min : nowDt.min,
             ]
         );
         
@@ -37,6 +37,13 @@ class RateServiceDelegate extends System.ServiceDelegate {
         if (bgData == null) {
             bgData = {};
 		}
+
+        try{
+            bgData.remove(AppConstants.AppRateUsdVar);
+        }
+        catch( ex ){
+        }
+
         if (responseCode == 200) {
             
             var rateUsd = data.get(AppConstants.Usd);

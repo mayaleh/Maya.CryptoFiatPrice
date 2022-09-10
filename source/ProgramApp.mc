@@ -25,6 +25,7 @@ class ProgramApp extends Application.AppBase {
 
     // This fires when the background service returns
     function onBackgroundData(data) {
+        LoggerHelper.debug("action=ProgramApp.onBackgroundData, message=executing");
         Application.getApp().setProperty(AppConstants.AppRateUsdVar, data[AppConstants.AppRateUsdVar]);
         WatchUi.requestUpdate();
     }  
@@ -46,9 +47,17 @@ class ProgramApp extends Application.AppBase {
     function getGlanceView() as Array<GlanceView or GlanceViewDelegate>
     {
 
-        if(Background.getTemporalEventRegisteredTime() != null) 
+        if(Background.getTemporalEventRegisteredTime() == null) 
         {
-            Background.registerForTemporalEvent(new Time.Duration(60*5));
+            try{
+                Background.registerForTemporalEvent(new Time.Duration(60*5));
+            }catch( ex ) {
+                LoggerHelper.debug("action=ProgramApp.getGlanceView, error=" + ex.mMessage);
+            }
+        }
+        else
+        {
+            LoggerHelper.debug("action=ProgramApp.getGlanceView, message=Background.getTemporalEventRegisteredTime is not null");
         }
 
         return [ 
