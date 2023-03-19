@@ -21,6 +21,9 @@ the solution contains theese features:
 - reusable drawing (like a parametrised components)
 - rendering bitmaps, changing content
 
+This project requere to setup Type Check Level: off.
+
+
 If this source code was useful for you or the you like the app, you can support me:
 [♥ Sponsor](https://github.com/sponsors/mayaleh) or
 <div align="center">

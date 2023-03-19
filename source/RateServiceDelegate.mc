@@ -1,14 +1,12 @@
-using Toybox.Application;
-using Toybox.Background;
-using Toybox.System;
-using Toybox.WatchUi;
-using Toybox.Time.Gregorian as Calendar;
-
+import Toybox.Application;
+import Toybox.Background;
+import Toybox.System;
+import Toybox.WatchUi;
 
 (:background)
 class RateServiceDelegate extends System.ServiceDelegate {
     
-    private var _httpClient;
+    private var _httpClient as HttpClient;
 
     function initialize() {
         System.ServiceDelegate.initialize();
@@ -20,10 +18,10 @@ class RateServiceDelegate extends System.ServiceDelegate {
         RateService.loadRate(_httpClient, "BTC", method(:onRateLoad));
     }
 
-    function onRateLoad(responseCode as Lang.Number, data as Lang.Dictionary or Null)
+    function onRateLoad(responseCode as Toybox.Lang.Number, data as Toybox.Lang.Dictionary or Null) as Void
     {
-        var nowDt = Calendar.info(Time.now(), Time.FORMAT_SHORT);
-        var dateString = Lang.format(
+        var nowDt = Toybox.Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+        var dateString = Toybox.Lang.format(
             "$1$:$2$",
             [
                 nowDt.hour < 10 ? "0" + nowDt.hour : nowDt.hour,
@@ -48,7 +46,7 @@ class RateServiceDelegate extends System.ServiceDelegate {
             
             var rateUsd = data.get(AppConstants.Usd);
 
-            var msg = Lang.format(
+            var msg = Toybox.Lang.format(
                 "$1$: $2$ $3$ $4$",
                 [
                     AppConstants.Btc,

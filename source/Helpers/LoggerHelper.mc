@@ -1,4 +1,4 @@
-using Toybox.System;
+import Toybox.System;
 
 (:glance,:background)
 class LoggerHelper {

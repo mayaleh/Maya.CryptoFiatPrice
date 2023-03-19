@@ -1,7 +1,7 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
-using Toybox.System;
-using Toybox.Communications;
+import Toybox.System;
+import Toybox.Communications;
 
 
 

@@ -5,7 +5,7 @@ class PriceViewModel
     private var _rates;
     private var _current = 0;
 
-    function initialize(rates as Array<RateCurrency>)
+    function initialize(rates as Toybox.Lang.Array<RateCurrency>)
     {
         _rates = rates;
         currentRate = _rates[_current];

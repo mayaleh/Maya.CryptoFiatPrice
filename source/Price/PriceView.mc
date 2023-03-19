@@ -1,7 +1,7 @@
-using Toybox.WatchUi;
-using Toybox.System;
-using Toybox.Lang;
-using Toybox.Graphics;
+import Toybox.WatchUi;
+import Toybox.System;
+import Toybox.Lang;
+import Toybox.Graphics;
 
 class PriceView extends WatchUi.View {
     private var _vm;

@@ -1,5 +1,5 @@
 import Toybox.WatchUi;
-using Toybox.System;
+import Toybox.System;
 
 class SelectProgressDelegate extends Toybox.WatchUi.BehaviorDelegate {
     function initialize() {

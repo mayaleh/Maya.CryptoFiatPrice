@@ -1,8 +1,8 @@
-using Toybox.Math;
-using Toybox.WatchUi;
-using Toybox.Graphics;
-using Toybox.System;
-using Toybox.Lang;
+import Toybox.Math;
+import Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.System;
+import Toybox.Lang;
 
 class BtnHintDrawable extends Toybox.WatchUi.Drawable {
     private var _centerX;

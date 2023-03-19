@@ -1,11 +1,11 @@
-using Toybox.Math;
-using Toybox.WatchUi;
-using Toybox.Graphics;
-using Toybox.System;
-using Toybox.Lang;
-using Toybox.Time;
-using Toybox.Background;
-using Toybox.Application;
+import Toybox.Math;
+import Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.System;
+import Toybox.Lang;
+import Toybox.Time;
+import Toybox.Background;
+import Toybox.Application;
 
 (:glance,:background)
 class ProgramApp extends Application.AppBase {
@@ -44,15 +44,15 @@ class ProgramApp extends Application.AppBase {
          ] as Array<Views or InputDelegates>;
     }
 
-    function getGlanceView() as Array<GlanceView or GlanceViewDelegate>
+    function getGlanceView()
     {
 
         if(Background.getTemporalEventRegisteredTime() == null) 
         {
             try{
                 Background.registerForTemporalEvent(new Time.Duration(60*5));
-            }catch( ex ) {
-                LoggerHelper.debug("action=ProgramApp.getGlanceView, error=" + ex.mMessage);
+            }catch( ex instanceof Lang.Exception ) {
+                LoggerHelper.debug("action=ProgramApp.getGlanceView, error=" + ex.getErrorMessage());
             }
         }
         else
@@ -62,7 +62,7 @@ class ProgramApp extends Application.AppBase {
 
         return [ 
             new AppGlanceView()
-         ] as Array<GlanceView or GlanceViewDelegate>;
+         ];
     }
 
      function getServiceDelegate(){
@@ -70,6 +70,6 @@ class ProgramApp extends Application.AppBase {
     }
 }
 
-function getApp() as SelectCoinApp {
-    return Application.getApp() as SelectCoinApp;
+function getApp() {
+    return Application.getApp();
 }

@@ -1,5 +1,5 @@
-using Toybox.System;
-using Toybox.Lang;
+import Toybox.System;
+import Toybox.Lang;
 
 class RateCurrency
 {

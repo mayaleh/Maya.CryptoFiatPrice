@@ -1,5 +1,5 @@
-using Toybox.WatchUi;
-using Toybox.System;
+import Toybox.WatchUi;
+import Toybox.System;
 
 class PriceDelegate extends Toybox.WatchUi.BehaviorDelegate{
     private var _vm;

@@ -1,11 +1,11 @@
-using Toybox.Math;
-using Toybox.WatchUi;
-using Toybox.Graphics;
-using Toybox.System;
-using Toybox.Lang;
-using Toybox.Time;
-using Toybox.Background;
-using Toybox.Application;
+import Toybox.Math;
+import Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.System;
+import Toybox.Lang;
+import Toybox.Time;
+import Toybox.Background;
+import Toybox.Application;
 
 (:glance)
 public class AppGlanceView extends Toybox.WatchUi.GlanceView
@@ -17,12 +17,14 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
 
 
     // Load your resources here
-    function onLayout(dc as Dc) {
+    function onLayout(dc as Dc) 
+    {
         try {
             setLayout(Rez.Layouts.AppGlanceLayout(dc)); // the layout must contain the scope attribute... found out after 6 hours of search because of bad docs and missing examples...
         }
-        catch( ex ) {
-            var e = ex;
+        catch( ex instanceof Lang.Exception ) 
+        {
+            var e = ex.getErrorMessage();
             // Code to catch all execeptions
         }
     }
@@ -31,14 +33,17 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-        try{
+        try
+        {
             var rateUsd = Application.getApp().getProperty(AppConstants.AppRateUsdVar);
             LoggerHelper.debug("action=AppGlanceView.onShow, message=" + rateUsd+ " for " + AppConstants.AppRateUsdVar);
             if(rateUsd){
                 setRateText(rateUsd);
             }
-        }catch( ex ) {
-            var e = ex.mMessage;
+        }
+        catch( ex instanceof Lang.Exception ) 
+        {
+            var e = ex.getErrorMessage();
             LoggerHelper.debug("action=AppGlanceView.onShow, error=" + e);
             // Code to catch all execeptions
         }
@@ -54,8 +59,8 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
             }
 
             GlanceView.onUpdate(dc);
-        }catch( ex ) {
-            var e = ex.mMessage;
+        }catch( ex instanceof Lang.Exception ) {
+            var e = ex.getErrorMessage();
             LoggerHelper.debug("action=AppGlanceView.onUpdate, error=" + e);
         }
     }
@@ -68,12 +73,14 @@ public class AppGlanceView extends Toybox.WatchUi.GlanceView
     
     function setRateText(text)
     {
-        try {
+        try 
+        {
             var infoLabel = GlanceView.findDrawableById("BtcRateLabel") as Text;
             infoLabel.setText(text);
         }
-        catch( ex ) {
-            var e = ex;
+        catch( ex instanceof Lang.Exception ) 
+        {
+            var e = ex.getErrorMessage();
             // Code to catch all execeptions
         }
     }
